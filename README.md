@@ -7,5 +7,6 @@ Car garage web-service where provides all kinds of car services like Engine Part
 | Frontend (client) | Backend (server)        |
 |:--------------|:------------------------------|
 | React Js      | Node Js                       |
-| Tailwind      | Express Js                    |
-| DaisyUI       | MongoDb                       |
+| React Router  | Express Js                    |
+| Tailwind      | MongoDb                       |
+| DaisyUI       |                               |
