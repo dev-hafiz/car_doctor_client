@@ -2,8 +2,12 @@ import loginImg from "../../../assets/images/login/login.svg";
 import facebook from "../../../assets/icons/Facebook.png";
 import google from "../../../assets/icons/google.png";
 import { Link } from "react-router-dom";
+import useAuth from "../../../Firbase/Hook/useAuth";
 
 const Login = () => {
+  const { user, signInWithGoogle } = useAuth();
+  console.log(user);
+
   const handleLoginData = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -74,8 +78,8 @@ const Login = () => {
                 <button className="mr-4">
                   <img src={facebook} alt="facebbok login" />
                 </button>
-                <button>
-                  <img src={google} alt="facebbok login" />
+                <button onClick={signInWithGoogle}>
+                  <img src={google} alt="google login" />
                 </button>
                 <p className="mt-8">
                   Don&rsquo;t have an accounts?{" "}
