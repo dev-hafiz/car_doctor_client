@@ -78,9 +78,9 @@ const Login = () => {
                   <img src={google} alt="facebbok login" />
                 </button>
                 <p className="mt-8">
-                  Have an accounts?{" "}
-                  <Link className="text-[#FF3811] font-bold" to="/signin">
-                    Sign In
+                  Don&rsquo;t have an accounts?{" "}
+                  <Link className="text-[#FF3811] font-bold" to="/signup">
+                    Sign Up
                   </Link>
                 </p>
               </div>
