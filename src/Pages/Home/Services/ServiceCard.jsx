@@ -1,3 +1,4 @@
+import { FaArrowRight } from "react-icons/fa";
 // eslint-disable-next-line react/prop-types
 const ServiceCard = ({ service }) => {
   const { title, img, price } = service || {};
@@ -11,10 +12,13 @@ const ServiceCard = ({ service }) => {
         />
       </figure>
       <div className="card-body">
-        <h2 className="card-title">{title}</h2>
-        <p>{price}</p>
-        <div className="card-actions justify-end">
-          <button className="btn btn-primary">Buy Now</button>
+        <h2 className="card-title text-2xl text-[#444444]	font-bold">{title}</h2>
+
+        <div className="card-actions justify-end flex items-center">
+          <p className="text-xl font-bold text-[#FF3811]">Price : ${price}</p>
+          <button className="btn  btn-active btn-link">
+            <FaArrowRight />
+          </button>
         </div>
       </div>
     </div>
