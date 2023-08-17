@@ -2,8 +2,12 @@ import loginImg from "../../../assets/images/login/login.svg";
 import facebook from "../../../assets/icons/Facebook.png";
 import google from "../../../assets/icons/google.png";
 import { Link } from "react-router-dom";
+import useAuth from "../../../Firbase/Hook/useAuth";
 
 const Signup = () => {
+  const { user, registerWithEmailAndPassword } = useAuth();
+  console.log(user);
+
   const handleLoginData = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -12,9 +16,7 @@ const Signup = () => {
     const email = form.email.value;
     const password = form.password.value;
 
-    console.log(name);
-    console.log(email);
-    console.log(password);
+    registerWithEmailAndPassword(email, password, name);
   };
 
   return (

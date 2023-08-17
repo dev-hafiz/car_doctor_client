@@ -4,10 +4,13 @@ import {
   createUserWithEmailAndPassword,
   getAuth,
   onAuthStateChanged,
+  signInWithEmailAndPassword,
   signInWithPopup,
+  updateProfile,
 } from "firebase/auth";
 
 import initializeAuthentication from "../Firebase/firebase.init";
+import Swal from "sweetalert2";
 
 initializeAuthentication();
 const useFirebase = () => {
@@ -35,13 +38,44 @@ const useFirebase = () => {
   };
 
   //register with email & password
-  const registerWithEmailAndPassword = (email, password) => {
-    createUserWithEmailAndPassword(auth, email, password)
+  const registerWithEmailAndPassword = (email, password, name) => {
+    console.log("From firebase", email, password, name);
+    createUserWithEmailAndPassword(auth, email, password, name)
+      .then((result) => {
+        const user = result.user;
+        updateUserProfile(name);
+        setUser(user);
+        Swal.fire({
+          icon: "success",
+          title: "Your account has been created successfully",
+          showConfirmButton: false,
+          timer: 2000,
+        });
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        setError(errorMessage);
+      });
+  };
+
+  //update user profile
+  const updateUserProfile = (name) => {
+    updateProfile(auth.currentUser, {
+      displayName: name,
+    }).catch((error) => {
+      const errorMessage = error.message;
+      setError(errorMessage);
+    });
+  };
+
+  //login with email & password
+  const loginWithEmailAndPassword = (email, password) => {
+    signInWithEmailAndPassword(auth, email, password)
       .then((result) => {
         const user = result.user;
         setUser(user);
       })
-      .cath((error) => {
+      .catch((error) => {
         const errorMessage = error.message;
         setError(errorMessage);
       });
@@ -66,6 +100,7 @@ const useFirebase = () => {
     loading,
     signInWithGoogle,
     registerWithEmailAndPassword,
+    loginWithEmailAndPassword,
   };
 };
 
