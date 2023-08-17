@@ -7,7 +7,6 @@ import useAuth from "../../../Firbase/Hook/useAuth";
 const Signup = () => {
   const { user, registerWithEmailAndPassword } = useAuth();
   console.log(user);
-
   const handleLoginData = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -15,8 +14,9 @@ const Signup = () => {
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
+    const photoUrl = form.photoUrl.value;
 
-    registerWithEmailAndPassword(email, password, name);
+    registerWithEmailAndPassword(email, password, name, photoUrl);
   };
 
   return (
@@ -54,6 +54,20 @@ const Signup = () => {
                   name="email"
                   type="email"
                   placeholder="Your email"
+                  className="input bg-white input-bordered"
+                  required
+                />
+              </div>
+              <div className="form-control mt-4">
+                <label className="label">
+                  <span className="label-text text-dark font-semibold">
+                    Photo url
+                  </span>
+                </label>
+                <input
+                  name="photoUrl"
+                  type="url"
+                  placeholder="Your photo url"
                   className="input bg-white input-bordered"
                   required
                 />

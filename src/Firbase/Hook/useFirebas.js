@@ -6,6 +6,7 @@ import {
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signInWithPopup,
+  signOut,
   updateProfile,
 } from "firebase/auth";
 
@@ -37,13 +38,12 @@ const useFirebase = () => {
       });
   };
 
-  //register with email & password
-  const registerWithEmailAndPassword = (email, password, name) => {
-    console.log("From firebase", email, password, name);
-    createUserWithEmailAndPassword(auth, email, password, name)
+  //Method: register with email & password
+  const registerWithEmailAndPassword = (email, password, name, photoUrl) => {
+    createUserWithEmailAndPassword(auth, email, password, name, photoUrl)
       .then((result) => {
         const user = result.user;
-        updateUserProfile(name);
+        updateUserProfile(name, photoUrl);
         setUser(user);
         Swal.fire({
           icon: "success",
@@ -58,17 +58,18 @@ const useFirebase = () => {
       });
   };
 
-  //update user profile
-  const updateUserProfile = (name) => {
+  //Method: update user profile
+  const updateUserProfile = (name, photoUrl) => {
     updateProfile(auth.currentUser, {
       displayName: name,
+      photoURL: photoUrl,
     }).catch((error) => {
       const errorMessage = error.message;
       setError(errorMessage);
     });
   };
 
-  //login with email & password
+  //Method: login with email & password
   const loginWithEmailAndPassword = (email, password) => {
     signInWithEmailAndPassword(auth, email, password)
       .then((result) => {
@@ -81,7 +82,7 @@ const useFirebase = () => {
       });
   };
 
-  //Observer currently signed-in user or not
+  //Method: Observer currently signed-in user or not
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -94,6 +95,18 @@ const useFirebase = () => {
     return () => unSubscribe();
   });
 
+  //Method: logout method
+  const logOut = () => {
+    signOut(auth)
+      .then(() => {
+        setUser({});
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        setError(errorMessage);
+      });
+  };
+
   return {
     user,
     error,
@@ -101,6 +114,7 @@ const useFirebase = () => {
     signInWithGoogle,
     registerWithEmailAndPassword,
     loginWithEmailAndPassword,
+    logOut,
   };
 };
 

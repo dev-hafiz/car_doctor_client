@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import useAuth from "../../../Firbase/Hook/useAuth";
 
 const Login = () => {
-  const { user, signInWithGoogle } = useAuth();
+  const { user, signInWithGoogle, loginWithEmailAndPassword } = useAuth();
   console.log(user);
 
   const handleLoginData = (event) => {
@@ -15,8 +15,7 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
 
-    console.log(email);
-    console.log(password);
+    loginWithEmailAndPassword(email, password);
   };
 
   return (

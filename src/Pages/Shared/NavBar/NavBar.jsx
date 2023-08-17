@@ -1,5 +1,10 @@
+import { Link } from "react-router-dom";
+import useAuth from "../../../Firbase/Hook/useAuth";
 import logo from "../../../assets/logo.svg";
+import { FaUserCircle } from "react-icons/fa";
 const NavBar = () => {
+  const { user, logOut } = useAuth();
+
   const navItem = (
     <>
       <li>
@@ -45,7 +50,31 @@ const NavBar = () => {
         <ul className="menu menu-horizontal bg-white px-1">{navItem}</ul>
       </div>
       <div className="navbar-end">
-        <button className="btn btn-outline btn-error">Appointment</button>
+        <button className="btn btn-outline btn-error mr-4">Appointment</button>
+
+        {user.uid ? (
+          <>
+            <button
+              onClick={logOut}
+              className="btn btn-active btn-neutral mr-4 text-white"
+            >
+              Log Out
+            </button>
+            {user.photoURL ? (
+              <div className="avatar online">
+                <div className="w-12 rounded-full">
+                  <img src={user.photoURL} />
+                </div>
+              </div>
+            ) : (
+              <FaUserCircle />
+            )}
+          </>
+        ) : (
+          <button className="btn btn-active btn-neutral mr-4 text-white">
+            <Link to="/signup">Sign Up</Link>
+          </button>
+        )}
       </div>
     </div>
   );
