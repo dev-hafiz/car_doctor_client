@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import {
+  FacebookAuthProvider,
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
   getAuth,
@@ -22,12 +23,25 @@ const useFirebase = () => {
 
   const auth = getAuth();
 
-  //googleProvider
+  //google and facebook Provider
   const googleProvider = new GoogleAuthProvider();
+  const facebookProvider = new FacebookAuthProvider();
 
   //google login
   const signInWithGoogle = () => {
     signInWithPopup(auth, googleProvider)
+      .then((result) => {
+        const user = result.user;
+        setUser(user);
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        setError(errorMessage);
+      });
+  };
+  //facebook login
+  const signInWithFacebook = () => {
+    signInWithPopup(auth, facebookProvider)
       .then((result) => {
         const user = result.user;
         setUser(user);
@@ -112,6 +126,7 @@ const useFirebase = () => {
     error,
     loading,
     signInWithGoogle,
+    signInWithFacebook,
     registerWithEmailAndPassword,
     loginWithEmailAndPassword,
     logOut,
