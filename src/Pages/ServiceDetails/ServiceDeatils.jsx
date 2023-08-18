@@ -184,6 +184,13 @@ const ServiceDeatils = () => {
               </button>
             </div>
           </div>
+          <h2 className="text-3xl font-bold text-dark mt-4 mb-3">
+            Price $250.00
+          </h2>
+
+          <button className="w-full h[56px] bg-[#FF3811] text-white font-medium py-3 rounded-md mt-2 ">
+            Proceed Checkout
+          </button>
         </div>
       </div>
     </div>

@@ -2,7 +2,10 @@ import logo from "../../../assets/logo.svg";
 
 const Footer = () => {
   return (
-    <footer className="footer py-32 px-40 bg-[#151515] text-base-content">
+    <footer
+      className="footer h-full
+     py-32 px-40 bg-[#151515] text-base-content"
+    >
       <div>
         <img src={logo} alt="" />
         <p>
