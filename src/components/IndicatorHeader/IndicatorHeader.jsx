@@ -6,6 +6,10 @@ const IndicatorHeader = () => {
           <h1 className="text-4xl  text-white font-bold">Service Details</h1>
         </div>
       </div>
+      <div>
+        <p>Home</p> {"/"}
+        <p>ServiceDetails</p>
+      </div>
     </div>
   );
 };
