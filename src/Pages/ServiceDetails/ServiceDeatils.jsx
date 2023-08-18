@@ -3,7 +3,11 @@ import IndicatorHeader from "../../components/IndicatorHeader/IndicatorHeader";
 const ServiceDeatils = () => {
   return (
     <div className="h-screen">
-      <IndicatorHeader />
+      <IndicatorHeader
+        title={"Service Details"}
+        home={"Home"}
+        serviceDetails={"serviceDetails"}
+      />
     </div>
   );
 };
