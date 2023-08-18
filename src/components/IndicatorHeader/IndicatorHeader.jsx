@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 // eslint-disable-next-line react/prop-types
 const IndicatorHeader = ({ title, serviceDetails, home }) => {
   return (
@@ -8,8 +10,11 @@ const IndicatorHeader = ({ title, serviceDetails, home }) => {
         </div>
       </div>
       <div className="text-white mt-[271px] rounded-t-2xl w-72 py-3 px-4 bg-[#FF3811] z-20 flex  justify-center space-x-2">
-        <p className="mr-2">{home}</p> {"/"}
-        <p>{serviceDetails}</p>
+        <Link to="/" className="mr-2 font-medium">
+          {home}
+        </Link>{" "}
+        {"/"}
+        <Link className="font-medium">{serviceDetails}</Link>
       </div>
     </div>
   );
