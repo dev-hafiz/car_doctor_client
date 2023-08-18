@@ -2,7 +2,11 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        "hero-banner": "url('/src/assets/images/herobaner.png')",
+      },
+    },
     colors: {
       blue: "#1fb6ff",
       purple: "#7e5bef",

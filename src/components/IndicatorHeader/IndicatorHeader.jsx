@@ -1,15 +1,9 @@
 const IndicatorHeader = () => {
   return (
-    <div className="hero h-screen bg-white">
-      <div className="hero-content text-center">
-        <div className="max-w-md">
-          <h1 className="text-5xl font-bold">Hello there</h1>
-          <p className="py-6">
-            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-            excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
-            a id nisi.
-          </p>
-          <button className="btn btn-primary">Get Started</button>
+    <div className="hero rounded-lg h-screen max-h-80	bg-hero-banner">
+      <div className="hero-content pl-20 flex justify-start  w-full h-full rounded-lg  bg-gradient-to-r from-[#000000] to-[rgba(21,21,21,0)">
+        <div>
+          <h1 className="text-4xl  text-white font-bold">Service Details</h1>
         </div>
       </div>
     </div>
