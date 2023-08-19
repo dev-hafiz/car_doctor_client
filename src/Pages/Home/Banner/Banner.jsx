@@ -1,7 +1,7 @@
-import img1 from "../../../assets/images/banner/1.jpg";
-import img2 from "../../../assets/images/banner/2.jpg";
-import img3 from "../../../assets/images/banner/3.jpg";
-import img4 from "../../../assets/images/banner/4.jpg";
+import img1 from "../../../assets/images/banner/p1.jpg";
+import img2 from "../../../assets/images/banner/p2.jpg";
+import img3 from "../../../assets/images/banner/p3.jpg";
+import img4 from "../../../assets/images/banner/p4.jpg";
 
 const Banner = () => {
   return (
@@ -37,7 +37,7 @@ const Banner = () => {
         </div>
       </div>
       <div id="slide2" className="carousel-item relative w-full">
-        <img src={img4} className="w-full rounded-xl" />
+        <img src={img2} className="w-full rounded-xl" />
         <div className="absolute rounded-xl h-full flex justify-between items-center  w-1/2 bg-gradient-to-r from-[#000000] to-[rgba(21,21,21,0)]">
           <div className="space-y-7 pl-12">
             <h1 className="text-6xl	font-bold text-white">
@@ -67,7 +67,7 @@ const Banner = () => {
         </div>
       </div>
       <div id="slide3" className="carousel-item relative w-full">
-        <img src={img2} className="w-full rounded-xl" />
+        <img src={img3} className="w-full rounded-xl" />
         <div className="absolute rounded-xl h-full flex justify-between items-center  w-1/2 bg-gradient-to-r from-[#000000] to-[rgba(21,21,21,0)]">
           <div className="space-y-7 pl-12">
             <h1 className="text-6xl	font-bold text-white">
@@ -97,7 +97,7 @@ const Banner = () => {
         </div>
       </div>
       <div id="slide4" className="carousel-item relative w-full">
-        <img src={img3} className="w-full rounded-xl" />
+        <img src={img4} className="w-full rounded-xl" />
         <div className="absolute rounded-xl h-full flex justify-between items-center  w-1/2 bg-gradient-to-r from-[#000000] to-[rgba(21,21,21,0)]">
           <div className="space-y-7 pl-12">
             <h1 className="text-6xl	font-bold text-white">

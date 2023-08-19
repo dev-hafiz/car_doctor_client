@@ -14,7 +14,9 @@ const IndicatorHeader = ({ title, serviceDetails, home }) => {
           {home}
         </Link>{" "}
         {"/"}
-        <Link className="font-medium">{serviceDetails}</Link>
+        <Link to="" className="font-medium">
+          {serviceDetails}
+        </Link>
       </div>
     </div>
   );

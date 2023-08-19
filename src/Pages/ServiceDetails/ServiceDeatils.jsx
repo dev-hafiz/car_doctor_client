@@ -108,13 +108,13 @@ const ServiceDeatils = () => {
           </div>
 
           {/* Video  */}
-          <video controls className="w-full">
+          {/* <video controls className="w-full">
             <source
               src="https://youtube.com/shorts/e6Gj-PrZcHo?feature=share"
               type="video/mp4"
             />
             Your browser does not support the video tag.
-          </video>
+          </video> */}
         </div>
         <div>
           {/* services */}
