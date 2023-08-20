@@ -9,7 +9,7 @@ const IndicatorHeader = ({ title, serviceDetails, home }) => {
           <h1 className="text-4xl  text-white font-bold">{title}</h1>
         </div>
       </div>
-      <div className="text-white mt-[271px] rounded-t-2xl w-72 py-3 px-4 bg-[#FF3811] z-20 flex  justify-center space-x-2">
+      <div className="text-white mt-[271px] w-72 py-3 px-4 bg-[#FF3811] z-20 flex  justify-center space-x-2">
         <Link to="/" className="mr-2 font-medium">
           {home}
         </Link>{" "}
