@@ -9,10 +9,14 @@ import s3 from "../../../src/assets/images/stepIcon/step3.svg";
 import { FaArrowRight } from "react-icons/fa";
 import logo from "../../../src/assets/icons/logo2.png";
 import document from "../../../src/assets/icons/daocument.png";
+import { useLoaderData } from "react-router-dom";
 
 const ServiceDeatils = () => {
+  const loadService = useLoaderData();
   const [details, setDetails] = useState([]);
   const [services, setServices] = useState([]);
+
+  console.log(loadService);
 
   //Load details data
   useEffect(() => {
