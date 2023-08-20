@@ -1,5 +1,4 @@
 import IndicatorHeader from "../../components/IndicatorHeader/IndicatorHeader";
-import engineService from "../../../src/assets/images/services/EngineService.png";
 import { useState } from "react";
 import { useEffect } from "react";
 import ServiceDetail from "./ServiceDetail";
@@ -14,22 +13,16 @@ import { useLoaderData } from "react-router-dom";
 const ServiceDeatils = () => {
   const loadService = useLoaderData();
   const [details, setDetails] = useState([]);
-  const [services, setServices] = useState([]);
 
-  console.log(loadService);
+  const { img, title, description, price } = loadService || {};
+
+  const services = loadService.facility;
 
   //Load details data
   useEffect(() => {
     fetch("details.json")
       .then((res) => res.json())
       .then((data) => setDetails(data));
-  }, []);
-
-  //Load services data
-  useEffect(() => {
-    fetch("services.json")
-      .then((res) => res.json())
-      .then((data) => setServices(data));
   }, []);
 
   return (
@@ -42,18 +35,9 @@ const ServiceDeatils = () => {
       <div className="grid my-28 gap-4 grid-cols-1 h-full md:grid-cols-2 lg:grid-cols-3">
         <div className="col-span-2 ">
           <div className="max-w-3xl	">
-            <img className="w-full" src={engineService} alt="Engine service" />
-            <h2 className="text-3xl my-5 font-bold text-dark">
-              Unique Car Engine Service
-            </h2>
-            <p className="text-[#737373]">
-              There are many variations of passages of Lorem Ipsum available,
-              but the majority have suffered alteration in some form, by
-              injected humour, or randomised words which do not look even
-              slightly believable. If you are going to use a passage of Lorem
-              Ipsum, you need to be sure there isn&rsquo;t anything embarrassing
-              hidden in the middle of text.{" "}
-            </p>
+            <img className="w-full" src={img} alt="Engine service" />
+            <h2 className="text-3xl my-5 font-bold text-dark">{title}</h2>
+            <p className="text-[#737373]">{description}</p>
           </div>
           <div className="grid gap-4 my-6   grid-cols-1 lg:grid-cols-2">
             {details.map((detail) => (
@@ -126,10 +110,10 @@ const ServiceDeatils = () => {
             <h3 className="font-bold text-2xl pb-2 text-[#151515]">Services</h3>
             {services.map((service) => (
               <div
-                key={service._id}
+                key={service.name}
                 className="flex justify-between w-[280px] bg-[#fff] hover:bg-[#ff35115a] items-center  text-dark my-2 rounded-lg cursor-pointer"
               >
-                <h4 className="pl-3 font-semibold">{service?.title}</h4>
+                <h4 className="pl-3 font-semibold">{service?.name}</h4>
                 <button className="btn  btn-active btn-link ">
                   <FaArrowRight className=" text-[#FF3811]" />
                 </button>
@@ -189,7 +173,7 @@ const ServiceDeatils = () => {
             </div>
           </div>
           <h2 className="text-3xl font-bold text-dark mt-4 mb-3">
-            Price $250.00
+            Price $ {price}
           </h2>
 
           <button className="w-full h[56px] bg-[#FF3811] text-white font-medium py-3 rounded-md mt-2 ">
