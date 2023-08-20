@@ -8,13 +8,13 @@ import s3 from "../../../src/assets/images/stepIcon/step3.svg";
 import { FaArrowRight } from "react-icons/fa";
 import logo from "../../../src/assets/icons/logo2.png";
 import document from "../../../src/assets/icons/daocument.png";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 const ServiceDeatils = () => {
   const loadService = useLoaderData();
   const [details, setDetails] = useState([]);
 
-  const { img, title, description, price } = loadService || {};
+  const { _id, img, title, description, price } = loadService || {};
 
   const services = loadService.facility;
 
@@ -176,9 +176,11 @@ const ServiceDeatils = () => {
             Price $ {price}
           </h2>
 
-          <button className="w-full h[56px] bg-[#FF3811] text-white font-medium py-3 rounded-md mt-2 ">
-            Proceed Checkout
-          </button>
+          <Link to={`/checkOut/${_id}`}>
+            <button className="w-full h[56px] bg-[#FF3811] text-white font-medium py-3 rounded-md mt-2 ">
+              Proceed Checkout
+            </button>
+          </Link>
         </div>
       </div>
     </div>

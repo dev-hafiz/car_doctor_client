@@ -30,7 +30,7 @@ export const router = createBrowserRouter([
           fetch(`http://localhost:5000/services/${params.id}`),
       },
       {
-        path: "checkOut",
+        path: "checkOut/:id",
         element: <CheckOut />,
       },
     ],
