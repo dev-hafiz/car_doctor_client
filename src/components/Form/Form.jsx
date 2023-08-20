@@ -63,9 +63,9 @@ const Form = () => {
                 required
               />
             </div>
-            <div className="form-control mt-6">
+            <div className="form-control mt-6 pb-12">
               <input
-                className="btn capitalize text-xl border-none outline-none text-white bg-[#FF3811]"
+                className="btn  capitalize text-xl border-none outline-none text-white bg-[#FF3811]"
                 type="submit"
                 value="Order confirm"
               />
