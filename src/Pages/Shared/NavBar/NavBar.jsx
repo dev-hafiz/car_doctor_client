@@ -7,12 +7,18 @@ const NavBar = () => {
 
   const navItem = (
     <>
-      <li>
-        <a>Home</a>
-      </li>
-      <li>
-        <a>About</a>
-      </li>
+      <Link to="/">
+        <li>
+          <a>Home</a>
+        </li>
+      </Link>
+      {user.uid && (
+        <Link to="/bookings">
+          <li>
+            <a>My Bookings</a>
+          </li>
+        </Link>
+      )}
     </>
   );
   return (

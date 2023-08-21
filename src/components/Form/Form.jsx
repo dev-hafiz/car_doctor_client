@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 
 // eslint-disable-next-line react/prop-types
 const Form = ({ loadService }) => {
-  const { _id, description, price } = loadService || {};
+  const { _id, description, price, img, title } = loadService || {};
 
   // console.log(price)
 
@@ -22,9 +22,11 @@ const Form = ({ loadService }) => {
     const order = {
       customarName: name,
       date,
+      img,
       email,
       price,
       des,
+      title,
       serviceID: _id,
     };
 
