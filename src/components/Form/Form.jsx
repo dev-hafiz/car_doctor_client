@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
+import useAuth from "../../Firbase/Hook/useAuth";
 
 const Form = () => {
+  const { user } = useAuth();
   const handleLoginData = (event) => {
     event.preventDefault();
     const form = event.target;
-    // const email = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
   };
@@ -17,9 +18,9 @@ const Form = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
               <div className="form-control ">
                 <input
-                  name="email"
-                  type="email"
-                  placeholder="Your email"
+                  name="name"
+                  type="text"
+                  defaultValue={user.displayName}
                   className="input bg-white input-bordered"
                   required
                 />
