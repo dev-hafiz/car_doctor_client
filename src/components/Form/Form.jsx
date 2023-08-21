@@ -1,13 +1,29 @@
 import { Link } from "react-router-dom";
 import useAuth from "../../Firbase/Hook/useAuth";
 
-const Form = () => {
+// eslint-disable-next-line react/prop-types
+const Form = ({ loadService }) => {
+  const { _id, description, price } = loadService || {};
   const { user } = useAuth();
   const handleLoginData = (event) => {
     event.preventDefault();
+
     const form = event.target;
+    const name = form.name.value;
+    const date = form.date.value;
     const email = form.email.value;
-    const password = form.password.value;
+    const price = form.price.value;
+    const des = form.des.value;
+
+    const order = {
+      customarName: name,
+      date,
+      email,
+      price,
+      des,
+      serviceID: _id,
+    };
+    console.log(order);
   };
 
   return (
@@ -21,16 +37,15 @@ const Form = () => {
                   name="name"
                   type="text"
                   defaultValue={user.displayName}
-                  className="input bg-white input-bordered"
+                  className="input text-white input-bordered"
                   required
                 />
               </div>
               <div className="form-control ">
                 <input
-                  name="password"
-                  type="password"
-                  placeholder="Your password"
-                  className="input bg-white input-bordered"
+                  name="date"
+                  type="date"
+                  className="input text-white input-bordered"
                   required
                 />
               </div>
@@ -40,28 +55,29 @@ const Form = () => {
                 <input
                   name="email"
                   type="email"
-                  placeholder="Your email"
-                  className="input bg-white input-bordered"
+                  defaultValue={user.email}
+                  className="input text-white input-bordered"
                   required
                 />
               </div>
               <div className="form-control ">
                 <input
-                  name="password"
-                  type="password"
-                  placeholder="Your password"
-                  className="input bg-white input-bordered"
+                  name="price"
+                  type="text"
+                  defaultValue={price}
+                  className="input text-white input-bordered"
                   required
                 />
               </div>
             </div>
             <div className="form-control my-4">
               <textarea
-                name="textarea"
+                name="des"
                 type="text"
-                placeholder="Your message"
-                className="input bg-white input-bordered"
+                defaultValue={description}
+                className="input text-white input-bordered"
                 required
+                readOnly
               />
             </div>
             <div className="form-control mt-6 pb-12">
