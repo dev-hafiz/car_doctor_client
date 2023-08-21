@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import useAuth from "../../Firbase/Hook/useAuth";
 import BookingRow from "./BookingRow";
+import Swal from "sweetalert2";
 
 const Bookings = () => {
   const { user } = useAuth();
   const [bookings, setBookings] = useState([]);
-  console.log(bookings);
 
   useEffect(() => {
     fetch(`http://localhost:5000/bookings?email=${user.email}`)
@@ -14,6 +14,36 @@ const Bookings = () => {
         setBookings(data);
       });
   }, [user.email]);
+
+  //Delete single service
+  const handleDeleteService = (_id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Yes, delete it!",
+      cancelButtonText: "No, cancel!",
+      reverseButtons: true,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/bookings/${_id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount > 0) {
+              Swal.fire("Deleted!", "Your file has been deleted.", "success");
+            }
+          });
+      } else if (
+        /* Read more about handling dismissals below */
+        result.dismiss === Swal.DismissReason.cancel
+      ) {
+        Swal.fire("Cancelled", "Your imaginary file is safe :)", "error");
+      }
+    });
+  };
 
   return (
     <div className="h-screen">
@@ -34,7 +64,11 @@ const Bookings = () => {
           <tbody>
             {/* row 1 */}
             {bookings.map((booking) => (
-              <BookingRow key={booking._id} booking={booking} />
+              <BookingRow
+                key={booking._id}
+                booking={booking}
+                handleDeleteService={handleDeleteService}
+              />
             ))}
           </tbody>
         </table>

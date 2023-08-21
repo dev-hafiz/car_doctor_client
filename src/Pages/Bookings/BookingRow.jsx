@@ -1,10 +1,13 @@
 // eslint-disable-next-line react/prop-types
-const BookingRow = ({ booking }) => {
-  const { img, price, date, title } = booking || {};
+const BookingRow = ({ booking, handleDeleteService }) => {
+  const { _id, img, price, date, title } = booking || {};
   return (
     <tr>
       <th>
-        <button className="btn btn-sm btn-circle">
+        <button
+          onClick={() => handleDeleteService(_id)}
+          className="btn btn-sm btn-circle"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-6 w-6"
