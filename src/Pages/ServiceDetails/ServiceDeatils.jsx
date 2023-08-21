@@ -9,7 +9,6 @@ import { FaArrowRight } from "react-icons/fa";
 import logo from "../../../src/assets/icons/logo2.png";
 import document from "../../../src/assets/icons/daocument.png";
 import { Link, useLoaderData } from "react-router-dom";
-import CheckOut from "../CheckOut/CheckOut";
 
 const ServiceDeatils = () => {
   const loadService = useLoaderData();
@@ -184,7 +183,6 @@ const ServiceDeatils = () => {
           </Link>
         </div>
       </div>
-      <CheckOut loadService={loadService} />
     </div>
   );
 };

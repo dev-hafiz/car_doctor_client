@@ -1,9 +1,13 @@
 import { Link } from "react-router-dom";
 import useAuth from "../../Firbase/Hook/useAuth";
+import Swal from "sweetalert2";
 
 // eslint-disable-next-line react/prop-types
 const Form = ({ loadService }) => {
   const { _id, description, price } = loadService || {};
+
+  // console.log(price)
+
   const { user } = useAuth();
   const handleLoginData = (event) => {
     event.preventDefault();
@@ -34,7 +38,14 @@ const Form = ({ loadService }) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        if (data.insertedId) {
+          Swal.fire({
+            icon: "success",
+            title: "Your Service has been booked!!!",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
       });
   };
 
