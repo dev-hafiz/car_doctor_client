@@ -33,14 +33,21 @@ const Bookings = () => {
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {
-              Swal.fire("Deleted!", "Your file has been deleted.", "success");
+              Swal.fire(
+                "Deleted!",
+                "Your booked service has been deleted.",
+                "success"
+              );
+              // eslint-disable-next-line no-undef
+              const remaning = bookings.filter(book._id !== _id);
+              setBookings(remaning);
             }
           });
       } else if (
         /* Read more about handling dismissals below */
         result.dismiss === Swal.DismissReason.cancel
       ) {
-        Swal.fire("Cancelled", "Your imaginary file is safe :)", "error");
+        Swal.fire("Cancelled", "Your imaginary service is safe :)", "error");
       }
     });
   };
