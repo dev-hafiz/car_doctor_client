@@ -3,7 +3,7 @@ import phone from "../../../assets/icons/person.svg";
 import location from "../../../assets/icons/location.svg";
 const Hotline = () => {
   return (
-    <div className="bg-dark text-white my-32 rounded-lg ">
+    <div className="bg-dark text-white mt-32 mb-24 rounded-lg ">
       <div className=" mx-24 py-24 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
         <div className="  flex  items-center">
           <img src={calender} alt="calender" />

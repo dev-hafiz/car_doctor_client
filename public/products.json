@@ -1,0 +1,56 @@
+[
+  {
+    "_id": "65745RWET56546GHRT56",
+    "title": "Car Engine Plug",
+    "rating": "5",
+    "price": "20.00",
+    "stock": "3",
+    "des": "The engine block features parts such as the timing chain, camshaft, crankshaft, spark plugs, cylinder heads, valves and pistons",
+    "img": "https://i.ibb.co/zSLrmtz/p1.png"
+  },
+  {
+    "_id": "65745RWEDSFG5463T56",
+    "title": "Car Air Filter",
+    "rating": "4",
+    "price": "23.00",
+    "stock": "5",
+    "des": "The engine block features parts such as the timing chain, camshaft, crankshaft, spark plugs, cylinder heads, valves and pistons",
+    "img": "https://i.ibb.co/pyJrkhS/p2.png"
+  },
+  {
+    "_id": "65RTWERT2345656GHRT56",
+    "title": "Cools Led Light",
+    "rating": "3",
+    "price": "10.00",
+    "stock": "6",
+    "des": "The engine block features parts such as the timing chain, camshaft, crankshaft, spark plugs, cylinder heads, valves and pistons",
+    "img": "https://i.ibb.co/vs585kC/p3.png"
+  },
+  {
+    "_id": "65745R56356766546G8797RT56",
+    "title": "Engine Plug",
+    "rating": "4",
+    "price": "13.00",
+    "stock": "6",
+    "des": "The engine block features parts such as the timing chain, camshaft, crankshaft, spark plugs, cylinder heads, valves and pistons",
+    "img": "https://i.ibb.co/SrKm8Zv/p4.png"
+  },
+  {
+    "_id": "657456456262668546GHRT56",
+    "title": "Car Branded Tyre ",
+    "rating": "5",
+    "price": "30.00",
+    "stock": "3",
+    "des": "The engine block features parts such as the timing chain, camshaft, crankshaft, spark plugs, cylinder heads, valves and pistons",
+    "img": "https://i.ibb.co/khD3N0T/p5.png"
+  },
+  {
+    "_id": "65745RWET123131233466546GHRT56",
+    "title": "Car Charged Battery",
+    "rating": "5",
+    "price": "15.00",
+    "stock": "8",
+    "des": "The engine block features parts such as the timing chain, camshaft, crankshaft, spark plugs, cylinder heads, valves and pistons",
+    "img": "https://i.ibb.co/VWr0tM5/p6.png"
+  }
+]
