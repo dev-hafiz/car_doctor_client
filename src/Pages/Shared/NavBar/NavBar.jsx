@@ -8,13 +8,28 @@ const NavBar = () => {
   const navItem = (
     <>
       <Link to="/">
-        <li>
+        <li className="font-bold">
           <a>Home</a>
+        </li>
+      </Link>
+      <Link to="/about">
+        <li className="font-bold">
+          <a>About</a>
+        </li>
+      </Link>
+      <Link to="/services">
+        <li className="font-bold">
+          <a>Services</a>
+        </li>
+      </Link>
+      <Link to="/contact">
+        <li className="font-bold">
+          <a>Contact</a>
         </li>
       </Link>
       {user.uid && (
         <Link to="/bookings">
-          <li>
+          <li className="font-bold">
             <a>My Bookings</a>
           </li>
         </Link>
@@ -22,7 +37,7 @@ const NavBar = () => {
     </>
   );
   return (
-    <div className="navbar bg-white flex items-center h-24 mb-8">
+    <div className="navbar bg-white flex items-center h-24 mb-8 pt-8">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -48,21 +63,19 @@ const NavBar = () => {
             {navItem}
           </ul>
         </div>
-        <a className="btn btn-ghost normal-case text-xl">
+        <Link to="/">
           <img src={logo} />
-        </a>
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal bg-white px-1">{navItem}</ul>
       </div>
       <div className="navbar-end">
-        <button className="btn btn-outline btn-error mr-4">Appointment</button>
-
         {user.uid ? (
           <>
             <button
               onClick={logOut}
-              className="btn btn-active btn-neutral mr-4 text-white"
+              className="btn btn-outline btn-error mr-4 text-white"
             >
               Log Out
             </button>
@@ -77,7 +90,7 @@ const NavBar = () => {
             )}
           </>
         ) : (
-          <button className="btn btn-active btn-neutral mr-4 text-white">
+          <button className="btnbtn-outline btn-error mr-4 text-white">
             <Link to="/signup">Sign Up</Link>
           </button>
         )}
