@@ -52,15 +52,19 @@ const Bookings = () => {
     });
   };
 
+  //Update status
+  const handleBookingConfirm = (_id) => {
+    console.log("Updated service ID", _id);
+  };
+
   return (
     <div className="h-screen">
       <div className="overflow-x-auto h-full">
         <table className="table">
           {/* head */}
           <thead>
-            <tr>
+            <tr className="text-[#FF3811]">
               <th>Delete</th>
-
               <th>Image</th>
               <th>Service</th>
               <th>Price</th>
@@ -75,6 +79,7 @@ const Bookings = () => {
                 key={booking._id}
                 booking={booking}
                 handleDeleteService={handleDeleteService}
+                handleBookingConfirm={handleBookingConfirm}
               />
             ))}
           </tbody>

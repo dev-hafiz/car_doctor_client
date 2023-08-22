@@ -1,5 +1,5 @@
 // eslint-disable-next-line react/prop-types
-const BookingRow = ({ booking, handleDeleteService }) => {
+const BookingRow = ({ booking, handleDeleteService, handleBookingConfirm }) => {
   const { _id, img, price, date, title } = booking || {};
   return (
     <tr>
@@ -41,7 +41,12 @@ const BookingRow = ({ booking, handleDeleteService }) => {
       <td className="font-bold">{price}</td>
       <td>{date}</td>
       <th>
-        <button className="btn btn-ghost btn-xs">confirm</button>
+        <button
+          onClick={() => handleBookingConfirm(_id)}
+          className="btn btn-ghost btn-xs"
+        >
+          Please Confirm
+        </button>
       </th>
     </tr>
   );
