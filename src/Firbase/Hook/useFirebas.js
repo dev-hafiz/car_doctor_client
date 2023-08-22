@@ -29,7 +29,6 @@ const useFirebase = () => {
 
   //google login
   const signInWithGoogle = () => {
-    setLoading(true);
     signInWithPopup(auth, googleProvider)
       .then((result) => {
         const user = result.user;
@@ -58,7 +57,6 @@ const useFirebase = () => {
 
   //Method: register with email & password
   const registerWithEmailAndPassword = (email, password, name, photoUrl) => {
-    setLoading(true);
     createUserWithEmailAndPassword(auth, email, password, name, photoUrl)
       .then((result) => {
         const user = result.user;
@@ -93,7 +91,6 @@ const useFirebase = () => {
 
   //Method: login with email & password
   const loginWithEmailAndPassword = (email, password) => {
-    setLoading(true);
     signInWithEmailAndPassword(auth, email, password)
       .then((result) => {
         const user = result.user;
@@ -102,6 +99,9 @@ const useFirebase = () => {
       .catch((error) => {
         const errorMessage = error.message;
         setError(errorMessage);
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
 
