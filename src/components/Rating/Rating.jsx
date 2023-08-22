@@ -8,7 +8,7 @@ const Rating = ({ rating }) => {
     <div>
       <div className="flex items-center">
         {Array.from({ length: maxRating }, (_, index) => (
-          <FaStar key={index} color={index < rating ? "gold" : "gray"} />
+          <FaStar key={index} color={index < rating ? "#FF912C" : "gray"} />
         ))}
       </div>
     </div>
