@@ -12,3 +12,4 @@ Car garage web-service where provides all kinds of car services like Engine Part
 | DaisyUI       |                               |
 | Firebase      |                               |
 | Context API   |                               |
+| React Sweet Alert   |                               |
