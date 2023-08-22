@@ -33,14 +33,14 @@ const Bookings = () => {
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {
+              // eslint-disable-next-line no-undef
+              const remaning = bookings.filter((book) => book._id !== _id);
+              setBookings(remaning);
               Swal.fire(
                 "Deleted!",
                 "Your booked service has been deleted.",
                 "success"
               );
-              // eslint-disable-next-line no-undef
-              const remaning = bookings.filter(book._id !== _id);
-              setBookings(remaning);
             }
           });
       } else if (
