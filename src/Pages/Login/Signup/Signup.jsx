@@ -19,7 +19,14 @@ const Signup = () => {
     const password = form.password.value;
     const photoUrl = form.photoUrl.value;
 
-    registerWithEmailAndPassword(email, password, name, photoUrl);
+    registerWithEmailAndPassword(
+      email,
+      password,
+      name,
+      photoUrl,
+      location,
+      navigate
+    );
   };
 
   return (

@@ -59,10 +59,20 @@ const useFirebase = () => {
   };
 
   //Method: register with email & password
-  const registerWithEmailAndPassword = (email, password, name, photoUrl) => {
+  const registerWithEmailAndPassword = (
+    email,
+    password,
+    name,
+    photoUrl,
+    location,
+    navigate
+  ) => {
+    let from = location.state?.from?.pathname || "/";
+
     createUserWithEmailAndPassword(auth, email, password, name, photoUrl)
       .then((result) => {
         const user = result.user;
+        navigate(from, { replace: true });
         updateUserProfile(name, photoUrl);
         setUser(user);
         Swal.fire({
