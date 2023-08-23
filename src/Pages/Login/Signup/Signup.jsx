@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import useAuth from "../../../Firbase/Hook/useAuth";
 
 const Signup = () => {
-  const { user, registerWithEmailAndPassword } = useAuth();
+  const { user, registerWithEmailAndPassword, signInWithGoogle } = useAuth();
   console.log(user);
   const handleLoginData = (event) => {
     event.preventDefault();
@@ -101,7 +101,7 @@ const Signup = () => {
                 <button className="mr-4">
                   <img src={facebook} alt="facebbok login" />
                 </button>
-                <button>
+                <button onClick={signInWithGoogle}>
                   <img src={google} alt="facebbok login" />
                 </button>
                 <p className="mt-8">
