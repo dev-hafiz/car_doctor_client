@@ -1,10 +1,13 @@
 import loginImg from "../../../assets/images/login/login.svg";
 import facebook from "../../../assets/icons/Facebook.png";
 import google from "../../../assets/icons/google.png";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../../Firbase/Hook/useAuth";
 
 const Signup = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
   const { user, registerWithEmailAndPassword, signInWithGoogle } = useAuth();
   console.log(user);
   const handleLoginData = (event) => {
@@ -101,7 +104,7 @@ const Signup = () => {
                 <button className="mr-4">
                   <img src={facebook} alt="facebbok login" />
                 </button>
-                <button onClick={signInWithGoogle}>
+                <button onClick={() => signInWithGoogle(location, navigate)}>
                   <img src={google} alt="facebbok login" />
                 </button>
                 <p className="mt-8">
