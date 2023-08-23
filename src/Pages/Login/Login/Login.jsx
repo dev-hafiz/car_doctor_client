@@ -1,10 +1,13 @@
 import loginImg from "../../../assets/images/login/login.svg";
 import facebook from "../../../assets/icons/Facebook.png";
 import google from "../../../assets/icons/google.png";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../../Firbase/Hook/useAuth";
 
 const Login = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
   const { signInWithGoogle, loginWithEmailAndPassword, signInWithFacebook } =
     useAuth();
 
@@ -77,7 +80,7 @@ const Login = () => {
                 <button onClick={signInWithFacebook} className="mr-4">
                   <img src={facebook} alt="facebbok login" />
                 </button>
-                <button onClick={signInWithGoogle}>
+                <button onClick={() => signInWithGoogle(location, navigate)}>
                   <img src={google} alt="google login" />
                 </button>
                 <p className="mt-8">
