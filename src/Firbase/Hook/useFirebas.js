@@ -28,10 +28,13 @@ const useFirebase = () => {
   const facebookProvider = new FacebookAuthProvider();
 
   //google login
-  const signInWithGoogle = () => {
+  const signInWithGoogle = (location, navigate) => {
+    let from = location.state?.from?.pathname || "/";
+
     signInWithPopup(auth, googleProvider)
       .then((result) => {
         const user = result.user;
+        navigate(from, { replace: true });
         setUser(user);
       })
       .catch((error) => {
