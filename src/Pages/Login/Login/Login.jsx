@@ -18,7 +18,7 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
 
-    loginWithEmailAndPassword(email, password);
+    loginWithEmailAndPassword(email, password, location, navigate);
   };
 
   return (
