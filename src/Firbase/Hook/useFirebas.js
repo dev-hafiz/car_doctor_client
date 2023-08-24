@@ -103,10 +103,12 @@ const useFirebase = () => {
   };
 
   //Method: login with email & password
-  const loginWithEmailAndPassword = (email, password) => {
+  const loginWithEmailAndPassword = (email, password, location, navigate) => {
+    let from = location.state?.from?.pathname || "/";
     signInWithEmailAndPassword(auth, email, password)
       .then((result) => {
         const user = result.user;
+        navigate(from, { replace: true });
         setUser(user);
       })
       .catch((error) => {
@@ -117,20 +119,6 @@ const useFirebase = () => {
         setLoading(false);
       });
   };
-
-  //Method: Observer currently signed-in user or not
-  useEffect(() => {
-    const unSubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setUser(user);
-      } else {
-        setUser({});
-      }
-      setLoading(false);
-    });
-
-    return () => unSubscribe();
-  });
 
   //Method: logout method
   const logOut = () => {
