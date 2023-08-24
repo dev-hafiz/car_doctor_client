@@ -120,6 +120,20 @@ const useFirebase = () => {
       });
   };
 
+  //Method: Observer currently signed-in user or not
+  useEffect(() => {
+    const unSubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUser(user);
+      } else {
+        setUser({});
+      }
+      setLoading(false);
+    });
+
+    return () => unSubscribe();
+  });
+
   //Method: logout method
   const logOut = () => {
     signOut(auth)
