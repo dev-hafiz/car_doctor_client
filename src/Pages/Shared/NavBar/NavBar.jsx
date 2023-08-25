@@ -36,6 +36,11 @@ const NavBar = () => {
       )}
     </>
   );
+
+  const handleLogOut = () => {
+    logOut();
+    localStorage.removeItem("car-access-token");
+  };
   return (
     <div className="navbar bg-white flex items-center h-24 mb-8 pt-8">
       <div className="navbar-start">
@@ -74,7 +79,7 @@ const NavBar = () => {
         {user.uid ? (
           <>
             <button
-              onClick={logOut}
+              onClick={handleLogOut}
               className="btn btn-outline btn-error mr-4 text-white"
             >
               Log Out
@@ -90,7 +95,7 @@ const NavBar = () => {
             )}
           </>
         ) : (
-          <button className="btnbtn-outline btn-error mr-4 text-white">
+          <button className="btn btn-outline btn-error mr-4 text-white">
             <Link to="/signup">Sign Up</Link>
           </button>
         )}

@@ -108,6 +108,8 @@ const useFirebase = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((result) => {
         const user = result.user;
+
+        // === JWT TOKEN ====
         const looggedUser = {
           email: user.email,
         };
@@ -120,9 +122,9 @@ const useFirebase = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
+            localStorage.setItem("car-access-token", data.token);
           });
-        navigate(from, { replace: true });
+        // navigate(from, { replace: true });
         setUser(user);
       })
       .catch((error) => {
