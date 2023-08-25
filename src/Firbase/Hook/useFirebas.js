@@ -108,6 +108,20 @@ const useFirebase = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((result) => {
         const user = result.user;
+        const looggedUser = {
+          email: user.email,
+        };
+        fetch(`http://localhost:5000/jwt`, {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(looggedUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+          });
         navigate(from, { replace: true });
         setUser(user);
       })
