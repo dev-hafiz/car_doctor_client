@@ -2,9 +2,11 @@ import { useEffect, useState } from "react";
 import useAuth from "../../Firbase/Hook/useAuth";
 import BookingRow from "./BookingRow";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const Bookings = () => {
-  const { user } = useAuth();
+  const navigate = useNavigate();
+  const { user, logOut } = useAuth();
   const [bookings, setBookings] = useState([]);
 
   useEffect(() => {
@@ -16,9 +18,13 @@ const Bookings = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        setBookings(data);
+        if (!data.error) {
+          setBookings(data);
+        } else {
+          navigate("/");
+        }
       });
-  }, [user.email]);
+  }, [user.email, logOut, navigate]);
 
   //Delete single service
   const handleDeleteService = (_id) => {
