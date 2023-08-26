@@ -120,7 +120,7 @@ const useFirebase = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
+            localStorage.setItem("car-access-token", data.token);
           });
 
         navigate(from, { replace: true });
