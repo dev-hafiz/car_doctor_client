@@ -10,19 +10,10 @@ const Bookings = () => {
   const [bookings, setBookings] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/bookings?email=${user.email}`, {
-      method: "GET",
-      headers: {
-        authorization: `Bearer ${localStorage.getItem("car-access-token")}`,
-      },
-    })
+    fetch(`http://localhost:5000/bookings?email=${user.email}`)
       .then((res) => res.json())
       .then((data) => {
-        if (!data.error) {
-          setBookings(data);
-        } else {
-          navigate("/");
-        }
+        setBookings(data);
       });
   }, [user.email, logOut, navigate]);
 

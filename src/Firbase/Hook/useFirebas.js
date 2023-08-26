@@ -109,21 +109,6 @@ const useFirebase = () => {
       .then((result) => {
         const user = result.user;
 
-        // === JWT TOKEN ====
-        const looggedUser = {
-          email: user.email,
-        };
-        fetch(`http://localhost:5000/jwt`, {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(looggedUser),
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            localStorage.setItem("car-access-token", data.token);
-          });
         navigate(from, { replace: true });
         setUser(user);
       })
