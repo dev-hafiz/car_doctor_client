@@ -8,8 +8,8 @@ const Signup = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const { user, registerWithEmailAndPassword, signInWithGoogle } = useAuth();
-  console.log(user);
+  const { registerWithEmailAndPassword, signInWithGoogle } = useAuth();
+
   const handleLoginData = (event) => {
     event.preventDefault();
     const form = event.target;
