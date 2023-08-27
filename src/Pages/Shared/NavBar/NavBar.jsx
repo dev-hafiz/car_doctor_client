@@ -39,7 +39,6 @@ const NavBar = () => {
 
   const handleLogOut = () => {
     logOut();
-    localStorage.removeItem("car-access-token");
   };
   return (
     <div className="navbar bg-white flex items-center h-24 mb-8 pt-8">
