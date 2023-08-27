@@ -140,11 +140,10 @@ const useFirebase = () => {
             .then((data) => {
               localStorage.setItem("car-access-token", data.token);
             });
-        } else {
-          localStorage.removeItem("car-access-token");
         }
       } else {
         setUser({});
+        localStorage.removeItem("car-access-token");
       }
       setLoading(false);
     });
