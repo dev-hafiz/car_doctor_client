@@ -59,37 +59,6 @@ const useFirebase = () => {
   };
 
   //Method: register with email & password
-  const registerWithEmailAndPassword = (
-    email,
-    password,
-    name,
-    photoUrl,
-    location,
-    navigate
-  ) => {
-    let from = location.state?.from?.pathname || "/";
-
-    createUserWithEmailAndPassword(auth, email, password, name, photoUrl)
-      .then((result) => {
-        const user = result.user;
-        navigate(from, { replace: true });
-        updateUserProfile(name, photoUrl);
-        setUser(user);
-        Swal.fire({
-          icon: "success",
-          title: "Your account has been created successfully",
-          showConfirmButton: false,
-          timer: 2000,
-        });
-      })
-      .catch((error) => {
-        const errorMessage = error.message;
-        setError(errorMessage);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
-  };
 
   //Method: update user profile
   const updateUserProfile = (name, photoUrl) => {
