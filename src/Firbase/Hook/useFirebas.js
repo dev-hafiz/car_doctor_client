@@ -126,19 +126,21 @@ const useFirebase = () => {
       if (user) {
         setUser(user);
 
-        // Post user email for JWT verification
-        const loggedUser = { email: user.email };
-        fetch(`http://localhost:5000/jwt`, {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(loggedUser),
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            localStorage.setItem("car-access-token", data.token);
-          });
+        if (user && user.email) {
+          // Post user email for JWT verification
+          const loggedUser = { email: user.email };
+          fetch(`http://localhost:5000/jwt`, {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(loggedUser),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              localStorage.setItem("car-access-token", data.token);
+            });
+        }
       } else {
         setUser({});
       }
