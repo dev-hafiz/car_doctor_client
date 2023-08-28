@@ -49,7 +49,7 @@ const OurTeam = () => {
             <a href="#slideFirst" className="btn btn-circle">
               ❮
             </a>
-            <a href="#slideNext" className="btn btn-circle">
+            <a href="#slideFirst" className="btn btn-circle">
               ❯
             </a>
           </div>
