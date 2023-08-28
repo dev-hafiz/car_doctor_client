@@ -2,6 +2,7 @@ import About from "../About/About";
 import Banner from "../Banner/Banner";
 import Hotline from "../Hotline/Hotline";
 import OurProducts from "../OurProducts/OurProducts";
+import OurTeam from "../OurTeam/OurTeam";
 import Services from "../Services/Services";
 
 const Home = () => {
@@ -12,6 +13,7 @@ const Home = () => {
       <Services />
       <Hotline />
       <OurProducts />
+      <OurTeam />
     </div>
   );
 };
