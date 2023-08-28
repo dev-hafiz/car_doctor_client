@@ -10,7 +10,7 @@ const Bookings = () => {
   const [bookings, setBookings] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/bookings?email=${user.email}`, {
+    fetch(`https://car-doctor-server-nine-red.vercel.app/bookings?email=${user.email}`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("car-access-token")}`,
@@ -38,7 +38,7 @@ const Bookings = () => {
       reverseButtons: true,
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/bookings/${_id}`, {
+        fetch(`https://car-doctor-server-nine-red.vercel.app/bookings/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -65,7 +65,7 @@ const Bookings = () => {
 
   //Update status
   const handleBookingConfirm = (_id) => {
-    fetch(`http://localhost:5000/bookings/${_id}`, {
+    fetch(`https://car-doctor-server-nine-red.vercel.app/bookings/${_id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",

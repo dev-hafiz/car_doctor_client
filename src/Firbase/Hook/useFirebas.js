@@ -129,7 +129,7 @@ const useFirebase = () => {
         if (user && user.email) {
           // Post user email for JWT verification
           const loggedUser = { email: user.email };
-          fetch(`http://localhost:5000/jwt`, {
+          fetch(`https://car-doctor-server-nine-red.vercel.app/jwt`, {
             method: "POST",
             headers: {
               "content-type": "application/json",
