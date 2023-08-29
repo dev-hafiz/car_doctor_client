@@ -10,12 +10,10 @@ const Bookings = () => {
   const [bookings, setBookings] = useState([]);
 
   useEffect(() => {
-    fetch(`https://car-doctor-server-nine-red.vercel.app/bookings?email=${user.email}`, {
-      method: "GET",
-      headers: {
-        authorization: `Bearer ${localStorage.getItem("car-access-token")}`,
-      },
-    })
+    fetch(
+      `https://car-doctor-server-nine-red.vercel.app/bookings?email=${user.email}`,
+      {}
+    )
       .then((res) => res.json())
       .then((data) => {
         if (!data.error) {
