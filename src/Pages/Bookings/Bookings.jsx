@@ -12,7 +12,12 @@ const Bookings = () => {
   useEffect(() => {
     fetch(
       `https://car-doctor-server-nine-red.vercel.app/bookings?email=${user.email}`,
-      {}
+      {
+        method: "GET",
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("car-access-token")}`,
+        },
+      }
     )
       .then((res) => res.json())
       .then((data) => {
