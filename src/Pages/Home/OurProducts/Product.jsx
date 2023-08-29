@@ -3,7 +3,7 @@ import Rating from "../../../components/Rating/Rating";
 import { FaCartArrowDown } from "react-icons/fa";
 // eslint-disable-next-line react/prop-types
 const Product = ({ product }) => {
-  const { _id, img, title, rating, price } = product || {};
+  const { img, title, rating, price } = product || {};
 
   return (
     <div className="card  bg-white mt-4 shadow-xl">
@@ -14,7 +14,7 @@ const Product = ({ product }) => {
         <Rating rating={rating} />
         <h2 className="text-xl font-bold text-[#444444]">{title}</h2>
         <p className="text-[#FF3811] font-semibold mt-[-10px]"> ${price}</p>
-        <div className="card-actions">
+        <div>
           <Link to="/">
             <FaCartArrowDown />
           </Link>
