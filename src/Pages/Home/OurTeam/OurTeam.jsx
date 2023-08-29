@@ -112,7 +112,7 @@ const OurTeam = () => {
           </div>
         </div>
         <div id="slideNext" className="carousel-item relative w-full">
-          <div className="flex flex-cols-1">
+          <div className="flex flex-cols-1 items-center space-x-16 ml-20">
             <div className="card w-72 bg-white shadow-xl">
               <figure className="px-10 pt-10">
                 <img src={c1} alt="Shoes" className="rounded-xl" />
