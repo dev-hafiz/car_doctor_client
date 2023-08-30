@@ -10,6 +10,7 @@ const Product = ({ product }) => {
       <figure className=" relative bg-[#F3F3F3] rounded-lg my-5 mx-5 py-8 px-8">
         <img src={img} className="rounded-xl" />
         <div className="absolute top-10 right-10 bg-white py-3  px-3 rounded-md ">
+        {/* link  */}
           <Link to="/">
             <FaCartArrowDown />
           </Link>
