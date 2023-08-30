@@ -3,6 +3,7 @@ import { useState } from "react";
 import ServiceCard from "./ServiceCard";
 
 const Services = () => {
+  //Service state
   const [services, setServices] = useState([]);
   useEffect(() => {
     fetch(`https://car-doctor-server-nine-red.vercel.app/services`)
