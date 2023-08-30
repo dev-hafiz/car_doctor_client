@@ -5,6 +5,7 @@ import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 
 const Bookings = () => {
+  //navigate user
   const navigate = useNavigate();
   const { user, logOut } = useAuth();
   const [bookings, setBookings] = useState([]);
