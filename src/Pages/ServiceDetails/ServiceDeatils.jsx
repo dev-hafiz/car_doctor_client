@@ -12,6 +12,7 @@ import { Link, useLoaderData } from "react-router-dom";
 
 const ServiceDeatils = () => {
   const loadService = useLoaderData();
+  //Service details state
   const [details, setDetails] = useState([]);
 
   const { _id, img, title, description, price } = loadService || {};
