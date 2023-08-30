@@ -3,6 +3,7 @@ import Product from "./Product";
 import { useEffect } from "react";
 
 const OurProducts = () => {
+  //Load product
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
