@@ -3,6 +3,7 @@ import useAuth from "../../Firbase/Hook/useAuth";
 import BookingRow from "./BookingRow";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import IndicatorHeader from "../../components/IndicatorHeader/IndicatorHeader";
 
 const Bookings = () => {
   //navigate user
@@ -89,34 +90,37 @@ const Bookings = () => {
   };
 
   return (
-    <div className="h-screen">
-      <div className="overflow-x-auto h-full">
-        <table className="table">
-          {/* head */}
-          <thead>
-            <tr className="text-[#FF3811]">
-              <th>Delete</th>
-              <th>Image</th>
-              <th>Service</th>
-              <th>Price</th>
-              <th>Date</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            {/* row 1 */}
-            {bookings.map((booking) => (
-              <BookingRow
-                key={booking._id}
-                booking={booking}
-                handleDeleteService={handleDeleteService}
-                handleBookingConfirm={handleBookingConfirm}
-              />
-            ))}
-          </tbody>
-        </table>
+    <>
+      <IndicatorHeader home="Home" serviceDetails="My Bookigns" />
+      <div className="h-screen mt-8">
+        <div className="overflow-x-auto  h-full">
+          <table className="table">
+            {/* head */}
+            <thead>
+              <tr className="text-[#FF3811]">
+                <th>Delete</th>
+                <th>Image</th>
+                <th>Service</th>
+                <th>Price</th>
+                <th>Date</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {/* row 1 */}
+              {bookings.map((booking) => (
+                <BookingRow
+                  key={booking._id}
+                  booking={booking}
+                  handleDeleteService={handleDeleteService}
+                  handleBookingConfirm={handleBookingConfirm}
+                />
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
