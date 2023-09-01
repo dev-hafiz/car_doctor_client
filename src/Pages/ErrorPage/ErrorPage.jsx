@@ -1,6 +1,6 @@
 const ErrorPage = () => {
   return (
-    <div>
+    <div className="h-screen">
       <h1>This is Error Component</h1>
     </div>
   );
