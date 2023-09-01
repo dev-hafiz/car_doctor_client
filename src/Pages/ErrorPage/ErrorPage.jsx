@@ -1,7 +1,9 @@
+import errorImg from "../../assets/images/error.png";
+
 const ErrorPage = () => {
   return (
-    <div className="h-screen">
-      <h1>This is Error Component</h1>
+    <div className="h-screen text-center">
+      <img src={errorImg} alt="errorPage" />
     </div>
   );
 };
