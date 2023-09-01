@@ -7,6 +7,7 @@ import ServiceDeatils from "../Pages/ServiceDetails/ServiceDeatils";
 import CheckOut from "../Pages/CheckOut/CheckOut";
 import Bookings from "../Pages/Bookings/Bookings";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 export const router = createBrowserRouter([
   {
@@ -54,5 +55,6 @@ export const router = createBrowserRouter([
         ),
       },
     ],
+    errorElement: <ErrorPage />,
   },
 ]);
